@@ -1,7 +1,7 @@
+import { Table } from 'console-table-printer';
+import { Comics } from './comics';
 import { Library } from './library';
-import { Novel, Comics } from './book';
-import { printTable, Table } from 'console-table-printer';
-
+import { Novel } from './novel';
 
 const myLibrary = new Library();
 
@@ -15,26 +15,31 @@ spiderman2.markAsRead();
 const hulk = new Comics('Hulk: Briseur de monde', 18, '0347938560', 'hulk');
 myLibrary.addBooks(spiderman1, spiderman2, hulk);
 
+// Novels
 const novelTable = new Table({
-    columns: [
-        {name: 'name', alignment: 'left', color: 'blue'},
-        {name: 'price', alignment: 'center'},
-        {name: 'genre', alignment: 'left', color: 'green'},
-        {name: 'isRead', alignment: 'center'}
-    ],
-    disabledColumns: ['ISBN', 'read']
-})
+  columns: [
+    { name: 'name', alignment: 'left', color: 'blue' },
+    { name: 'price', alignment: 'center' },
+    { name: 'genre', alignment: 'left', color: 'green' },
+    { name: 'isRead', alignment: 'center' }
+  ],
+  disabledColumns: [ 'ISBN', 'read' ]
+});
 novelTable.addRows(myLibrary.novels);
+
+// Comics
 const comicsTable = new Table({
-    columns: [
-        {name: 'name', alignment: 'left', color: 'blue'},
-        {name: 'price', alignment: 'center'},
-        {name: 'hero', alignment: 'left', color: 'red'},
-        {name: 'isRead', alignment: 'center'}
-    ],
-    disabledColumns: ['ISBN', 'read']
-})
+  columns: [
+    { name: 'name', alignment: 'left', color: 'blue' },
+    { name: 'price', alignment: 'center' },
+    { name: 'hero', alignment: 'left', color: 'red' },
+    { name: 'isRead', alignment: 'center' }
+  ],
+  disabledColumns: [ 'ISBN', 'read' ]
+});
 comicsTable.addRows(myLibrary.comics);
+
+// Print
 console.log(`Novels`);
 novelTable.printTable();
 console.log(`Comics`);
