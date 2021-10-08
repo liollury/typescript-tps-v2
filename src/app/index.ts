@@ -11,6 +11,7 @@ myLibrary.addBook(new Novel('Au bout de la nuit', 8.4, '2259874405', 'fiction'))
 
 const spiderman1 = new Comics('Spider-man: un nouveau départ', 9.95, '08742875363', 'spiderman');
 const spiderman2 = new Comics('Spider-man: Vénon', 9.95, '08742875345', 'spiderman');
+spiderman2.markAsRead();
 const hulk = new Comics('Hulk: Briseur de monde', 18, '0347938560', 'hulk');
 myLibrary.addBooks(spiderman1, spiderman2, hulk);
 
@@ -19,7 +20,7 @@ const novelTable = new Table({
         {name: 'name', alignment: 'left', color: 'blue'},
         {name: 'price', alignment: 'center'},
         {name: 'genre', alignment: 'left', color: 'green'},
-        {name: 'isReaded', alignment: 'center'}
+        {name: 'isRead', alignment: 'center'}
     ],
     disabledColumns: ['ISBN', 'read']
 })
@@ -29,7 +30,7 @@ const comicsTable = new Table({
         {name: 'name', alignment: 'left', color: 'blue'},
         {name: 'price', alignment: 'center'},
         {name: 'hero', alignment: 'left', color: 'red'},
-        {name: 'isReaded', alignment: 'center'}
+        {name: 'isRead', alignment: 'center'}
     ],
     disabledColumns: ['ISBN', 'read']
 })

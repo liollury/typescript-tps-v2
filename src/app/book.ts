@@ -10,7 +10,7 @@ export abstract class Book {
         this.read = true;
     }
 
-    get isReaded(): string {
+    get isRead(): string {
         return this.read ? 'Yes' : 'No';
     }
 }
