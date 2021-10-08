@@ -1,7 +1,6 @@
-import * as myLibrary from './library';
+import { Table } from 'console-table-printer';
 import { createBook } from './book';
-import { printTable, Table } from 'console-table-printer';
-
+import * as myLibrary from './library';
 
 myLibrary.addBook(createBook('De soleil et de sang', 8.2, '2253079405'));
 myLibrary.addBook(createBook('Le douzième chapitre', 7.9, '2253079654'));
@@ -13,12 +12,12 @@ const hulk = createBook('Hulk: Briseur de monde', 18, '0347938560');
 myLibrary.addBooks(spiderman1, spiderman2, hulk);
 
 const table = new Table({
-    columns: [
-        {name: 'name', alignment: 'left', color: 'blue'},
-        {name: 'price', alignment: 'center'},
-        {name: 'read', alignment: 'center'}
-    ],
-    disabledColumns: ['ISBN']
+  columns: [
+    { name: 'name', alignment: 'left', color: 'blue' },
+    { name: 'price', alignment: 'center' },
+    { name: 'read', alignment: 'center' }
+  ],
+  disabledColumns: [ 'ISBN' ]
 })
 table.addRows(myLibrary.getBooks());
 console.log(`Library`);
