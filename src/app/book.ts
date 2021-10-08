@@ -1,13 +1,8 @@
-export enum BookType {
-    COMICS,
-    NOVEL
-}
-export function createBook(name: string, price: number, ISBN: string, type: BookType) {
+export function createBook(name: string, price: number, ISBN: string) {
     return {
         name,
         price,
         ISBN,
-        type,
         read: false
     };
 }
