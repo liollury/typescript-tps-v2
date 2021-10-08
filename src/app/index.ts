@@ -18,7 +18,7 @@ const novelTable = new Table({
         {name: 'price', alignment: 'center'},
         {name: 'read', alignment: 'center'}
     ],
-    disabledColumns: ['ISBN', 'read']
+    disabledColumns: ['ISBN']
 })
 novelTable.addRows(myLibrary.getNovels());
 const comicsTable = new Table({
@@ -27,7 +27,7 @@ const comicsTable = new Table({
         {name: 'price', alignment: 'center'},
         {name: 'read', alignment: 'center'}
     ],
-    disabledColumns: ['ISBN', 'read']
+    disabledColumns: ['ISBN']
 })
 comicsTable.addRows(myLibrary.getComics());
 console.log(`Novels`);
