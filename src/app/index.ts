@@ -13,22 +13,22 @@ const hulk = createBook('Hulk: Briseur de monde', 18, '0347938560', BookType.COM
 myLibrary.addBooks(spiderman1, spiderman2, hulk);
 
 const novelTable = new Table({
-    columns: [
-        {name: 'name', alignment: 'left', color: 'blue'},
-        {name: 'price', alignment: 'center'},
-        {name: 'read', alignment: 'center'}
-    ],
-    disabledColumns: ['ISBN']
-})
+  columns: [
+    {name: 'name', alignment: 'left', color: 'blue'},
+    {name: 'price', alignment: 'center'},
+    {name: 'read', alignment: 'center'}
+  ],
+  disabledColumns: ['ISBN']
+});
 novelTable.addRows(myLibrary.getNovels());
 const comicsTable = new Table({
-    columns: [
-        {name: 'name', alignment: 'left', color: 'blue'},
-        {name: 'price', alignment: 'center'},
-        {name: 'read', alignment: 'center'}
-    ],
-    disabledColumns: ['ISBN']
-})
+  columns: [
+    {name: 'name', alignment: 'left', color: 'blue'},
+    {name: 'price', alignment: 'center'},
+    {name: 'read', alignment: 'center'}
+  ],
+  disabledColumns: ['ISBN']
+});
 comicsTable.addRows(myLibrary.getComics());
 console.log(`Novels`);
 novelTable.printTable();

@@ -1,33 +1,34 @@
-import { BookType } from './book';
+import { BookType, Book } from './book';
 
-let library: { name: string, price: number, ISBN: string, type: BookType, read: boolean }[] = [];
+type Library = Book[];
+let library: Library = [];
 
-export function addBook(book: { name: string, price: number, ISBN: string, type: BookType, read: boolean }) {
-    library.push(book);
+export function addBook(book: Book) {
+  library.push(book);
 }
 
-export function addBooks(...books: { name: string, price: number, ISBN: string, type: BookType, read: boolean }[]) {
-    library.push(...books);
+export function addBooks(...books: Book[]) {
+  library.push(...books);
 }
 
-export function getBooks(): { name: string, price: number, ISBN: string, type: BookType, read: boolean }[] {
-    return library;
+export function getBooks(): Book[] {
+  return library;
 }
 
 export function deleteBookByISBN(ISBN: string): boolean {
-    const bookCount = library.length;
-    library = library.filter((book: { ISBN: string }) => book.ISBN === ISBN);
-    return bookCount === library.length;
+  const bookCount = library.length;
+  library = library.filter((book: { ISBN: string }) => book.ISBN === ISBN);
+  return bookCount === library.length;
 }
 
 export function getValue(): number {
-    return library.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
+  return library.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
 }
 
-export function getNovels(): { name: string, price: number, ISBN: string, type: BookType, read: boolean }[] {
-    return library.filter((book: {type: BookType}) => book.type === BookType.NOVEL);
+export function getNovels(): Book[] {
+  return library.filter((book: { type: BookType }) => book.type === BookType.NOVEL);
 }
 
-export function getComics(): { name: string, price: number, ISBN: string, type: BookType, read: boolean }[] {
-    return library.filter((book: {type: BookType}) => book.type === BookType.COMICS);
+export function getComics(): Book[] {
+  return library.filter((book: { type: BookType }) => book.type === BookType.COMICS);
 }
