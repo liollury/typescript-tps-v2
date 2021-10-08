@@ -1,4 +1,4 @@
-export function createBook(name: string, price: number, ISBN: string) {
+export function createBook(name, price, ISBN) {
     return {
         name,
         price,

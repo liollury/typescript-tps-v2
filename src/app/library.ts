@@ -19,5 +19,5 @@ export function deleteBookByISBN(ISBN) {
 }
 
 export function getValue() {
-    return library.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
+    return library.reduce((previousValue, currentValue) => previousValue + parseFloat(currentValue.price), 0);
 }
