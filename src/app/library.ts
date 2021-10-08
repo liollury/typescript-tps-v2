@@ -17,18 +17,18 @@ export function getBooks(): Book[] {
 
 export function deleteBookByISBN(ISBN: string): boolean {
   const bookCount = library.length;
-  library = library.filter((book: { ISBN: string }) => book.ISBN === ISBN);
+  library = library.filter((book: Book) => book.ISBN === ISBN);
   return bookCount === library.length;
 }
 
 export function getValue(): number {
-  return library.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
+  return getBooks().reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
 }
 
 export function getNovels(): Book[] {
-  return library.filter((book: { type: BookType }) => book.type === BookType.NOVEL);
+  return getBooks().filter((book: Book) => book.type === BookType.NOVEL);
 }
 
 export function getComics(): Book[] {
-  return library.filter((book: { type: BookType }) => book.type === BookType.COMICS);
+  return library.filter((book: Book) => book.type === BookType.COMICS);
 }
