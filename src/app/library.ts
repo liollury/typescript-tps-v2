@@ -1,4 +1,4 @@
-import { BookType, Book } from './book';
+import { Book, BookType } from './book';
 
 type Library = Book[];
 let library: Library = [];
