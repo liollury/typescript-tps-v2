@@ -1,47 +1,33 @@
-import { Book, Comics, Novel, NovelGenre } from './book';
+import { BookType } from './book';
 
-export class Library {
-    books: Book[];
+let library: { name: string, price: number, ISBN: string, type: BookType, read: boolean }[] = [];
 
-    constructor() {
-        this.books = [];
-    }
+export function addBook(book: { name: string, price: number, ISBN: string, type: BookType, read: boolean }) {
+    library.push(book);
+}
 
-    addBook(book: Book): void {
-        this.books.push(book);
-    }
+export function addBooks(...books: { name: string, price: number, ISBN: string, type: BookType, read: boolean }[]) {
+    library.push(...books);
+}
 
-    addBooks(...books: Book[]): void {
-        this.books.push(...books);
-    }
+export function getBooks(): { name: string, price: number, ISBN: string, type: BookType, read: boolean }[] {
+    return library;
+}
 
-    deleteBookByISBN(isbn: string): boolean {
-        const bookCount = this.books.length;
-        this.books = this.books.filter((book: Book) => book.ISBN === isbn);
-        return bookCount === this.books.length;
-    }
+export function deleteBookByISBN(ISBN: string): boolean {
+    const bookCount = library.length;
+    library = library.filter((book: { ISBN: string }) => book.ISBN === ISBN);
+    return bookCount === library.length;
+}
 
-    get value(): number {
-        return this.books.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
-    }
+export function getValue(): number {
+    return library.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
+}
 
-    get toReadBooks(): Book[] {
-        return this.books.filter((book: Book) => !book.read);
-    }
+export function getNovels(): { name: string, price: number, ISBN: string, type: BookType, read: boolean }[] {
+    return library.filter((book: {type: BookType}) => book.type === BookType.NOVEL);
+}
 
-    get comics(): Comics[] {
-        return this.books.filter((book: Book) => book instanceof Comics) as Comics[];
-    }
-
-    get novels(): Novel[] {
-        return this.books.filter((book: Book) => book instanceof Novel) as Novel[];
-    }
-
-    getNovelsByGenre(genre: NovelGenre): Novel[] {
-        return this.novels.filter((novel: Novel) => novel.genre === genre);
-    }
-
-    getComicsByHero(hero: String): Comics[] {
-        return this.comics.filter((comics: Comics) => comics.hero === hero);
-    }
+export function getComics(): { name: string, price: number, ISBN: string, type: BookType, read: boolean }[] {
+    return library.filter((book: {type: BookType}) => book.type === BookType.COMICS);
 }
