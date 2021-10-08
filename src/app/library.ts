@@ -22,7 +22,7 @@ export function deleteBookByISBN(ISBN: string): boolean {
 }
 
 export function getValue(): number {
-  return getBooks().reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
+  return library.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0);
 }
 
 export function getNovels(): Book[] {
@@ -30,5 +30,5 @@ export function getNovels(): Book[] {
 }
 
 export function getComics(): Book[] {
-  return library.filter((book: Book) => book.type === BookType.COMICS);
+  return getBooks().filter((book: Book) => book.type === BookType.COMICS);
 }
