@@ -1,5 +1,3 @@
-import { printTable, Table } from 'console-table-printer';
-
 let library = [];
 
 function createBook(name, price, ISBN) {
