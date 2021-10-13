@@ -17,8 +17,8 @@ export function getBooks(): Book[] {
 
 export function deleteBookByISBN(ISBN: string): boolean {
   const bookCount = library.length;
-  library = library.filter((book: Book) => book.ISBN === ISBN);
-  return bookCount === library.length;
+  library = library.filter((book: Book) => book.ISBN !== ISBN);
+  return bookCount !== library.length;
 }
 
 export function getValue(): number {
