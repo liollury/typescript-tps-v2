@@ -19,8 +19,8 @@ export class Library {
 
   deleteBookByISBN(isbn: string): boolean {
     const bookCount = this.books.length;
-    this.books = this.books.filter((book: Book) => book.ISBN === isbn);
-    return bookCount === this.books.length;
+    this.books = this.books.filter((book: Book) => book.ISBN !== isbn);
+    return bookCount !== this.books.length;
   }
 
   get value(): number {
